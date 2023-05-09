@@ -8,8 +8,24 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <h1>Welcome to Retrolister!</h1>
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+        <form action="/index" method="post">
+            <label for="userName">Username:</label>
+            <input type="hidden" id="userName" name="userName">
+            <label for="sellerType">Private seller or Dealer?:</label>
+            <input type="hidden" id="sellerType" name="sellerType">
+            <label for="gameName">Game Name:</label>
+            <input type="hidden" id="gameName" name="gameName">
+            <label for="price">Price:</label>
+            <input type="hidden" id="price" name="price">
+            <label for="platform">Platform:</label>
+            <input type="hidden" id="platform" name="platform">
+            <label for="condition">Conditioin:</label>
+            <input type="hidden" id="condition" name="condition">
+            <label for="numPlayers">Number of Players:</label>
+            <input type="hidden" id="numPlayers" name="numPlayers">
+        </form>
     </div>
 </body>
 </html>
