@@ -10,12 +10,20 @@
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group">
-                <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text">
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
+                <label for="userName">Username:</label>
+                <input type="hidden" id="userName" name="userName">
+                <label for="sellerType">Private seller or Dealer?:</label>
+                <input type="hidden" id="sellerType" name="sellerType">
+                <label for="gameName">Game Name:</label>
+                <input type="hidden" id="gameName" name="gameName">
+                <label for="price">Price:</label>
+                <input type="hidden" id="price" name="price">
+                <label for="platform">Platform:</label>
+                <input type="hidden" id="platform" name="platform">
+                <label for="condition">Condition:</label>
+                <input type="hidden" id="condition" name="condition">
+                <label for="numPlayers">Number of Players:</label>
+                <input type="hidden" id="numPlayers" name="numPlayers">
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
