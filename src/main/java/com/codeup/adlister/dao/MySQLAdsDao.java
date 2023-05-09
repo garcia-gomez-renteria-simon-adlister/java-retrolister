@@ -17,9 +17,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                config.getUrl("jdbc:mysql://localhost:3306/gameslister_db?allowPublicKeyRetrieval=true&useSSL=false",),
+                config.getUser("root"),
+                config.getPassword("codeup")
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
