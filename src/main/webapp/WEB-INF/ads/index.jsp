@@ -17,5 +17,16 @@
         </div>
     </c:forEach>
 </div>
+<form>
+<h1>Search for Items</h1>
+    <label for="searchSelect">Please select which criteria to use
+    </label>
+        <select id="searchSelect" name="Search Keywords">
+            <option value="title">Game Title</option>
+            <option value="genre">Genre</option>
+            <option value="platform">Gaming System</option>
+        </select>
+    <button type="submit">Search</button>
+</form>
 </body>
 </html>
