@@ -10,7 +10,6 @@ import java.util.List;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
-
     public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
@@ -23,12 +22,11 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
     @Override
     public List<Ad> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads");
+            stmt = connection.prepareStatement("SELECT * FROM games");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
