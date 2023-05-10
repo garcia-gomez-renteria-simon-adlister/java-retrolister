@@ -19,6 +19,26 @@
 </div>
 <form>
 <h1>Search for Items</h1>
+    <h1>Welcome to Retrolister!</h1>
+    <div class="container">
+        <form action="/index" method="post">
+            <label for="userName">Username:</label>
+            <input type="hidden" id="userName" name="userName">
+            <label for="sellerType">Private seller or Dealer?:</label>
+            <input type="hidden" id="sellerType" name="sellerType">
+            <label for="gameName">Game Name:</label>
+            <input type="hidden" id="gameName" name="gameName">
+            <label for="price">Price:</label>
+            <input type="hidden" id="price" name="price">
+            <label for="platform">Platform:</label>
+            <input type="hidden" id="platform" name="platform">
+            <label for="condition">Conditioin:</label>
+            <input type="hidden" id="condition" name="condition">
+            <label for="numPlayers">Number of Players:</label>
+            <input type="hidden" id="numPlayers" name="numPlayers">
+        </form>
+    </div>
+    <div class="container">
     <label for="searchSelect">Please select which criteria to use
     </label>
         <select id="searchSelect" name="Search Keywords">
@@ -27,6 +47,7 @@
             <option value="platform">Gaming System</option>
         </select>
     <button type="submit">Search</button>
+    </div>
 </form>
 </body>
 </html>
