@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
     public MySQLAdsDao(Config config) {
@@ -33,7 +32,6 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
-
     @Override
     public Long insert(Ad ad) {
         try {
@@ -50,26 +48,12 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
-<<<<<<< HEAD
-
-    @Override
-    public void update(Ad ad) {
-
-    }
-
-    @Override
-    public void delete(Ad ad) {
-
-    }
-
-=======
     @Override
     public void update(Ad ad) {
     }
     @Override
     public void delete(Ad ad) {
     }
->>>>>>> 0eeae0fe4797805bde5a3612995bc94e41bb7bab
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
