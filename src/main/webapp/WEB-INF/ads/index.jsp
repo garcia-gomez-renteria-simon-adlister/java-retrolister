@@ -18,7 +18,6 @@
     </c:forEach>
 </div>
 <form>
-<h1>Search for Items</h1>
     <h1>Welcome to Retrolister!</h1>
     <div class="container">
         <form action="/index" method="post">
@@ -38,15 +37,18 @@
             <input type="hidden" id="numPlayers" name="numPlayers">
         </form>
     </div>
+    <h1>Search for Items</h1>
     <div class="container">
-    <label for="searchSelect">Please select which criteria to use
-    </label>
-        <select id="searchSelect" name="Search Keywords">
-            <option value="title">Game Title</option>
-            <option value="genre">Genre</option>
-            <option value="platform">Gaming System</option>
-        </select>
-    <button type="submit">Search</button>
+    <form action="/index" method="post">
+        <label for="searchSelect">Please select which criteria to use
+        </label>
+            <select id="searchSelect" name="Search Keywords">
+                <option value="title">Game Title</option>
+                <option value="genre">Genre</option>
+                <option value="platform">Gaming System</option>
+            </select>
+        <button type="submit">Search</button>
+    </form>
     </div>
 </form>
 </body>
