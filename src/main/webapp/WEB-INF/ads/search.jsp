@@ -16,10 +16,9 @@
   <form action="/search" method="post">
     <label for="searchSelect">Please select which criteria to use
     </label>
-    <select id="searchSelect" name="Search Keywords">
+    <select id="searchSelect" name="Search Select">
       <option value="title">Game Title</option>
-      <option value="genre">Genre</option>
-      <option value="platform">Gaming System</option>
+      <option value="category">Category</option>
     </select>
     <button type="submit">Search</button>
   </form>
