@@ -26,3 +26,10 @@ VALUES ('RPG'),
        ('Fantasy'),
        ('Adventure'),
        ('Racing');
+
+TRUNCATE users;
+INSERT INTO users(username, email)
+VALUES ('Tamica', 'TamEyekaa@yahoo.com'),
+       ('Paul','PaulyShore@Yahoo.com'),
+       ('Davis','HotMale@Hotmail.com'),
+       ('Travis','BobRossDaBoss@gmail.com');
