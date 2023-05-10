@@ -1,8 +1,6 @@
 USE adlister_db;
-
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
-
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL,
@@ -10,7 +8,6 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
-
 CREATE TABLE ads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
@@ -19,4 +16,17 @@ CREATE TABLE ads (
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
+);
+DROP TABLE IF EXISTS CATEGORIES;
+CREATE TABLE categories (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(30),
+    PRIMARY KEY (id)
+);
+DROP TABLE IF EXISTS game_category;
+CREATE TABLE game_category (
+    game_id INTEGER UNSIGNED NOT NULL,
+    category_id INTEGER UNSIGNED NOT NULL,
+    FOREIGN KEY (game_id) REFERENCES ads(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
 );
