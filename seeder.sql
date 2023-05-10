@@ -17,3 +17,12 @@ VALUES('Pokemon Soul Silver','return players to the scenic Johto region first in
         objectives while computer-controlled opponents try to hinder the player''s progress'),
       ('Mario Kart 64','is a kart racing game in which the player controls one of eight selectable
         Mario characters in several racetracks that vary in shape and theme');
+
+TRUNCATE categories;
+INSERT INTO categories(name)
+VALUES ('RPG'),
+       ('First Person'),
+       ('Action'),
+       ('Fantasy'),
+       ('Adventure'),
+       ('Racing');
