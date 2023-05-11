@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class AdsSearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String gameSearch equals(request.getParameter(""))
+        String gameSearch, equals(request.getParameter(""))
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
         request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
     }

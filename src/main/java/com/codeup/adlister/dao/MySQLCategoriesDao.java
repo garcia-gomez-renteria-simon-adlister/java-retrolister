@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -22,10 +23,10 @@ public class MySQLCategoriesDao implements Categories {
         }
     }
     @Override
-    public List<Ad> all() {
+    public List<Category> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads");
+            stmt = connection.prepareStatement("SELECT * FROM categories");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
@@ -34,9 +35,9 @@ public class MySQLCategoriesDao implements Categories {
     }
 
     @Override
-    public Long insert(Ad ad) {
+    public Long insert(Category category) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO categories(user_id, title, description) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
@@ -49,26 +50,26 @@ public class MySQLCategoriesDao implements Categories {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
-<<<<<<< HEAD
+
 
     @Override
-    public void update(Ad ad) {
+    public void update(Category category) {
 
     }
 
     @Override
-    public void delete(Ad ad) {
+    public void delete(Category category) {
 
     }
 
-=======
+
     @Override
-    public void update(Ad ad) {
+    public void update(Category category) {
     }
     @Override
-    public void delete(Ad ad) {
+    public void delete(Category category) {
     }
->>>>>>> 0eeae0fe4797805bde5a3612995bc94e41bb7bab
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
                 rs.getLong("id"),
@@ -86,4 +87,4 @@ public class MySQLCategoriesDao implements Categories {
     }
 }
 
-}
+
