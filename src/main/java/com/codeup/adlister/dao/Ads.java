@@ -11,4 +11,5 @@ public interface Ads {
     Long insert(Ad ad);
     void update(Ad ad);
     void delete(Ad ad);
+    Ad findAdById (int ad);
 }
