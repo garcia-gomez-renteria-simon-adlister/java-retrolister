@@ -30,3 +30,5 @@ CREATE TABLE game_category (
     FOREIGN KEY (game_id) REFERENCES ads(id),
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );
+ALTER TABLE users
+ADD UNIQUE (username);
