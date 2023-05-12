@@ -15,7 +15,9 @@
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <form action="/ads/arbitrary" method="get">
-                <a href="/ad?id=${Ad.id}">Show more info</a>
+                <label for="arbitraryAd">Type in the name of the game you'd like to view"</label>
+                <input id="arbitraryAd" name="arbitraryAd" type="text" value="${ad.title}">
+                <button type="submit">Clieck to view game details!</button>
             </form>
             <form action="/ads/create" method="get">
                 <a href=""></a>
