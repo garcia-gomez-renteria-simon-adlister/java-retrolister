@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface Categories {
 
-    List<Category> all();
+    List<Ad> all();
     Long insert(Category category);
 
     void update (Category category);

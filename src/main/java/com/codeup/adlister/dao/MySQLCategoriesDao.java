@@ -23,7 +23,7 @@ public class MySQLCategoriesDao implements Categories {
         }
     }
     @Override
-    public List<Category> all() {
+    public List<Ad> all() {
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM categories");
@@ -39,9 +39,9 @@ public class MySQLCategoriesDao implements Categories {
         try {
             String insertQuery = "INSERT INTO categories(user_id, title, description) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getUserId());
-            stmt.setString(2, ad.getTitle());
-            stmt.setString(3, ad.getDescription());
+            stmt.setString(1, category.getName());
+            stmt.setLong(2, category.getId());
+
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
