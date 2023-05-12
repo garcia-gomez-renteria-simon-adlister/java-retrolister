@@ -14,11 +14,11 @@
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-            <form action="/ads/arbitrary" method="get">
+<%--            <form action="/ads/arbitrary" method="get">--%>
                 <label for="arbitraryAd">Type in the name of the game you'd like to view"</label>
                 <input id="arbitraryAd" name="arbitraryAd" type="text" value="${ad.title}">
-                <button type="submit">Clieck to view game details!</button>
-            </form>
+                <a href="/ads/arbitraryad?id=${ad.id}" class="btn btn-primary">Click to view game details!</a>
+<%--            </form>--%>
             <form action="/ads/create" method="get">
                 <a href=""></a>
             </form>
