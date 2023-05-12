@@ -17,6 +17,9 @@
             <form action="/ads/arbitrary" method="get">
                 <a href="/ad?id=${Ad.id}">Show more info</a>
             </form>
+            <form action="/ads/create" method="get">
+                <a href=""></a>
+            </form>
         </div>
     </c:forEach>
 </div>

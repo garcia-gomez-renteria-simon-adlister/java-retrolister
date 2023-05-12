@@ -18,33 +18,53 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
         // validate input
-        boolean inputHasErrors = username.isEmpty()
-            || email.isEmpty()
-            || password.isEmpty()
-            || (! password.equals(passwordConfirmation));
+        boolean inputHasErrors = true;
+
 
         if (inputHasErrors) {
             response.sendRedirect("/register");
             return;
         }
+        if (username.isEmpty()) {
+            request.setAttribute("errors", true);
+            request.setAttribute("username_error", true);
+        }
 
-        // create and save a new user
-        User user = new User(username, email, password);
+        if (email.isEmpty()) {
+            request.setAttribute("errors", true);
+            request.setAttribute("email_error", true);
+        }
 
-        // hash the password
+        if (password.isEmpty()) {
+            request.setAttribute("errors", true);
+            request.setAttribute("password_error", true);
+        }
+        if (!password.equals(passwordConfirmation)) {
+            request.setAttribute("errors", true);
+            request.setAttribute("passwordConfirmation_error", true);
+        }
 
-        String hash = Password.hash(user.getPassword());
+        if ((Boolean) request.getAttribute("errors")) {
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
 
-        user.setPassword(hash);
+            // create and save a new user
+            User user = new User(username, email, password);
 
-        DaoFactory.getUsersDao().insert(user);
-        response.sendRedirect("/login");
+            // hash the password
+
+            String hash = Password.hash(user.getPassword());
+
+            user.setPassword(hash);
+
+            DaoFactory.getUsersDao().insert(user);
+            response.sendRedirect("/login");
+        }
     }
 }
