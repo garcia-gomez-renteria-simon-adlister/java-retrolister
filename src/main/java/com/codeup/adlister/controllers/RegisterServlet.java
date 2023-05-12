@@ -113,7 +113,11 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
         }
-
+        // some new code so i member
+        if (DaoFactory.getUsersDao().findByUsername(username) != null) {
+            response.sendRedirect("/login");
+            return;
+        }
         User user = new User(username, email, password);
 
         String hash = Password.hash(user.getPassword());
