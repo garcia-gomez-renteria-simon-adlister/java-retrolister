@@ -12,4 +12,5 @@ public interface Ads {
     void update(Ad ad);
     void delete(Ad ad);
     Ad findAdById (int ad);
+    Ad getAdOwner(int user_id);
 }

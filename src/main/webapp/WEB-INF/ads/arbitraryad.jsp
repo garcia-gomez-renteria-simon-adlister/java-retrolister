@@ -19,7 +19,7 @@
 <div>
     <h1>Title: ${arbitraryAd.title}</h1>
     <h4>Description: ${arbitraryAd.description}</h4>
-<%--    <h5>Category: ${arbitraryAd.categories}</h5>--%>
+    <h4>User: ${arbitraryUser.username}</h4>
 <%--    refine this and may need another jsp/servlet--%>
 </div>
 

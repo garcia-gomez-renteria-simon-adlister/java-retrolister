@@ -14,6 +14,9 @@ public class ArbitraryAdServlet extends HttpServlet {
     protected void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int arbitraryAd = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("arbitraryAd", DaoFactory.getAdsDao().findAdById(arbitraryAd));
+//arbitraryAd.getUseR() (a method in mysql that says : hey this ad is assigned to this user_id, can you go get that user?
+        request.setAttribute("arbitraryAd", DaoFactory.getAdsDao().getAdOwner());
+
         request.getRequestDispatcher("/WEB-INF/ads/arbitraryad.jsp").forward(request, response);
     }
 }

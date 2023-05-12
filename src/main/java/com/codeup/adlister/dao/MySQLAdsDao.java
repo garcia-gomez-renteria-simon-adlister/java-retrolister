@@ -1,9 +1,7 @@
 package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +86,23 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e){
             throw new RuntimeException("Ad Id not found", e);
         }             return foundAd;
+    }
+    public Ad getAdOwner (int user_id) {
+        String findAd = "SELECT * FROM ads where user_id = ?";
+        Ad foundAd = null;
+        try {
+            PreparedStatement stmt = connection.prepareStatement(findAd);
+            stmt.setInt(1, user_id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                foundAd = new Ad(rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("User Id not found", e);
+        } return foundAd;
     }
 }
 
