@@ -17,7 +17,7 @@
 <%--            <form action="/ads/arbitrary" method="get">--%>
                 <label for="arbitraryAd">Type in the name of the game you'd like to view"</label>
                 <input id="arbitraryAd" name="arbitraryAd" type="text" value="${ad.title}">
-                <a href="/ads/arbitraryad?id=${ad.id}" class="btn btn-primary">Click to view game details!</a>
+                <a href="/ads/arbitraryad?id=${ad.id}&user_id=${ad.user_id}" class="btn btn-primary">Click to view game details!</a>
 <%--            </form>--%>
             <form action="/ads/create" method="get">
                 <a href=""></a>

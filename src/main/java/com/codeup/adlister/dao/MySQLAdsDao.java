@@ -88,7 +88,7 @@ public class MySQLAdsDao implements Ads {
         }             return foundAd;
     }
     public Ad getAdOwner (int user_id) {
-        String findAd = "SELECT * FROM ads where user_id = ?";
+        String findAd = "SELECT * FROM users where user_id = ?";
         Ad foundAd = null;
         try {
             PreparedStatement stmt = connection.prepareStatement(findAd);

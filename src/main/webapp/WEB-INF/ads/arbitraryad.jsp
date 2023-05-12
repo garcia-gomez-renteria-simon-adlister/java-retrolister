@@ -19,9 +19,8 @@
 <div>
     <h1>Title: ${arbitraryAd.title}</h1>
     <h4>Description: ${arbitraryAd.description}</h4>
-    <h4>User: ${arbitraryUser.username}</h4>
+    <h4>User: ${arbitraryUser.user_id}</h4>
 <%--    refine this and may need another jsp/servlet--%>
 </div>
-
 </body>
 </html>
