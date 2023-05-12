@@ -63,12 +63,7 @@ public class MySQLCategoriesDao implements Categories {
     }
 
 
-    @Override
-    public void update(Category category) {
-    }
-    @Override
-    public void delete(Category category) {
-    }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(

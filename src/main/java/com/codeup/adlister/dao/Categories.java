@@ -11,4 +11,8 @@ public interface Categories {
     List<Category> all();
     Long insert(Category category);
 
+    void update (Category category);
+
+    void delete(Category category);
+
 }
