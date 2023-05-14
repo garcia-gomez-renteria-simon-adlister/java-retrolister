@@ -1,7 +1,7 @@
 package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,14 +46,12 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
-
     @Override
     public void update(Ad ad) {
     }
     @Override
     public void delete(Ad ad) {
     }
-
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
@@ -62,7 +60,6 @@ public class MySQLAdsDao implements Ads {
             rs.getString("description")
         );
     }
-
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
@@ -87,22 +84,24 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Ad Id not found", e);
         }             return foundAd;
     }
-    public Ad getAdOwner (int user_id) {
-        String findAd = "SELECT * FROM users where user_id = ?";
-        Ad foundAd = null;
-        try {
-            PreparedStatement stmt = connection.prepareStatement(findAd);
+
+    @Override
+    public User getAdOwner(int user_id) {
+        String findOwner = "SELECT * FROM users where user_id = ?";
+        User adOwner = null;
+        try{
+            PreparedStatement stmt = connection.prepareStatement(findOwner);
             stmt.setInt(1, user_id);
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                foundAd = new Ad(rs.getLong("id"),
-                        rs.getLong("user_id"),
-                        rs.getString("title"),
-                        rs.getString("description"));
+            while (rs.next()){
+                adOwner = new User(rs.getInt("user_id"),
+                        rs.getString("username"),
+                        rs.getString("email"));
             }
-        } catch (SQLException e) {
-            throw new RuntimeException("User Id not found", e);
-        } return foundAd;
+        } catch (SQLException e){
+            throw new RuntimeException("Ad Id not found", e);
+        }             return adOwner;
     }
+
 }
 
