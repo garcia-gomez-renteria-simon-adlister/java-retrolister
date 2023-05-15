@@ -24,12 +24,12 @@
         input[type=text], select, .btn-primary {
             background-color: #E0C3FC;
             border-color: #FFC8DD;
-            color: #5F4B8B; /* updated font color */
+            color: #5F4B8B;
         }
         textarea {
             background-color: #E0C3FC;
             border-color: #FFC8DD;
-            color: #5F4B8B; /* updated font color */
+            color: #5F4B8B;
             resize: none;
         }
         .error-message {

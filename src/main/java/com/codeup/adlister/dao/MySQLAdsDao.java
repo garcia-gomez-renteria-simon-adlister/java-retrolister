@@ -105,7 +105,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public User getAdOwner(int user_id) {
-        String findOwner = "SELECT * FROM users where user_id = ?";
+        String findOwner = "SELECT * FROM users where id = ?";
         User adOwner = null;
         try{
             PreparedStatement stmt = connection.prepareStatement(findOwner);

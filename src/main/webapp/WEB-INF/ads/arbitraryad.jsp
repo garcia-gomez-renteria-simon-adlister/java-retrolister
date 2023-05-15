@@ -42,9 +42,6 @@
 <div class="container">
     <h1>Title: ${arbitraryAd.title}</h1>
     <h4>Description: ${arbitraryAd.description}</h4>
-<<<<<<< HEAD
-    <%--    <h5>Category: ${arbitraryAd.categories}</h5>--%>
-    <%--    refine this and may need another jsp/servlet--%>
     <button id="updateBtn" class="btn btn-primary">Update Description</button>
     <form id="updateForm" class="hidden" action="/ads/update" method="POST">
         <input type="hidden" name="id" value="${arbitraryAd.id}" />
@@ -68,9 +65,10 @@
     });
 </script>
 
-<%--    <h4>User: ${arbitraryUser.user_id}</h4>--%>
-<h4>User: ${arbitraryUser.getUser_id()}</h4>
+<div class="container">
+    <c:if test="${arbitraryUser.user_id != null}">
+        <h4>User: ${arbitraryUser.user_id}</h4>
+    </c:if>
 </div>
-
 </body>
 </html>

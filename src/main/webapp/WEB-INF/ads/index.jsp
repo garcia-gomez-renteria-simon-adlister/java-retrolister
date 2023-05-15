@@ -70,7 +70,7 @@
     </c:if>
 
     <c:forEach var="ad" items="${ads}">
-<<<<<<< HEAD
+
         <div class="ad-container">
             <div class="ad-title">${ad.title}</div>
             <div class="ad-description">${ad.description}</div>
@@ -83,19 +83,7 @@
                     </form>
                 </c:if>
             </div>
-=======
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
 
-                <label for="arbitraryAd">Type in the name of the game you'd like to view"</label>
-                <input id="arbitraryAd" name="arbitraryAd" type="text" value="${ad.title}">
-                <a href="/ads/arbitraryad?id=${ad.id}&user_id=${ad.user_id}" class="btn btn-primary">Click to view game details!</a>
-
-            <form action="/ads/create" method="get">
-                <a href=""></a>
-            </form>
->>>>>>> 679f8727fa533af7e8b3212613e069bf6b2e455f
         </div>
     </c:forEach>
 </div>
@@ -110,3 +98,4 @@
 </script>
 </body>
 </html>
+
