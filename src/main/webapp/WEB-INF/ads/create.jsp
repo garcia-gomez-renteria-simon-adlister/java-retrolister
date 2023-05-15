@@ -7,6 +7,9 @@
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
     <style>
+        .navbar{
+            background-color: #f5ccff;
+        }
         body {
             background: linear-gradient(180deg,#7B61FF, #f5ccff) ;
             font-family: 'Press Start 2P', cursive;
