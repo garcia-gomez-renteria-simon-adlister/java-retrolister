@@ -65,12 +65,17 @@
 <div class="container">
     <h1>Games for Sale!</h1>
 
+    <%-- Add a search bar --%>
+    <form action="/ads" method="get">
+        <input type="text" name="search" placeholder="Search..." value="${param.search}" />
+        <button type="submit" class="btn-primary">Search</button>
+    </form>
+
     <c:if test="${not empty successMessage}">
         <div class="alert alert-success">${successMessage}</div>
     </c:if>
 
     <c:forEach var="ad" items="${ads}">
-
         <div class="ad-container">
             <div class="ad-title">${ad.title}</div>
             <div class="ad-description">${ad.description}</div>
@@ -83,7 +88,6 @@
                     </form>
                 </c:if>
             </div>
-
         </div>
     </c:forEach>
 </div>
