@@ -38,7 +38,7 @@ public class ArbitraryAdServlet extends HttpServlet {
         String newDetails = request.getParameter("description");
 
 
-        String successPage = "/ads/arbitraryad.jsp;
-        response.sendRedirect(successPage);
+//        String successPage = "/ads/arbitraryad.jsp;
+//        response.sendRedirect(successPage);
     }
 }

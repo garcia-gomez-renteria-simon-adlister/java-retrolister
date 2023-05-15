@@ -7,6 +7,10 @@
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
     <style>
+        .navbar{
+            background-color: #f2c6c6;
+        }
+
         body {
             background-color: #f2c6c6;
             font-family: 'Press Start 2P', cursive;
