@@ -36,15 +36,15 @@
         }
     </style>
 </head>
-
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Title: ${arbitraryAd.title}</h1>
     <h4>Description: ${arbitraryAd.description}</h4>
     <button id="updateBtn" class="btn btn-primary">Update Description</button>
-    <form id="updateForm" class="hidden" action="/ads/update" method="POST">
-        <input type="hidden" name="id" value="${arbitraryAd.id}" />
+    <form id="updateForm" class="hidden" action="/ads/arbitraryad" method="POST">
+        <input type="hidden" name="adId" value="${arbitraryAd.id}" />
+        <input type="hidden" name="userId" value="${arbitraryUser.id}" />
         <label>New Description:</label><br />
         <textarea name="description" rows="4" cols="50">${arbitraryAd.description}</textarea><br />
         <button type="submit" class="btn btn-primary">Save</button>
@@ -57,17 +57,19 @@
             families: ['Press Start 2P']
         }
     });
-    const updateBtn = document.querySelector('#updateBtn');
-    const updateForm = document.querySelector('#updateForm');
-    updateBtn.addEventListener('click', () => {
-        updateBtn.classList.add('hidden');
-        updateForm.classList.remove('hidden');
-    });
+    window.onload = function () {
+        const updateBtn = document.querySelector('#updateBtn');
+        const updateForm = document.querySelector('#updateForm');
+        updateBtn.addEventListener('click', function() {
+            updateBtn.classList.add('hidden');
+            updateForm.classList.remove('hidden');
+        });
+    };
 </script>
 
 <div class="container">
-    <c:if test="${arbitraryUser.user_id != null}">
-        <h4>User: ${arbitraryUser.user_id}</h4>
+    <c:if test="${arbitraryUser.id != null}">
+        <h4>User ID: ${arbitraryUser.id}</h4>
     </c:if>
 </div>
 </body>

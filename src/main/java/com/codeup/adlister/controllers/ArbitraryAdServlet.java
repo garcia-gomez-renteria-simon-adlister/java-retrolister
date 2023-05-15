@@ -1,4 +1,5 @@
 
+
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
@@ -17,19 +18,27 @@ public class ArbitraryAdServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idString = request.getParameter("id");
-        String userIdString = request.getParameter("user_id");
 
-        if (idString != null && userIdString != null) {
+        if (idString != null) {
             int arbitraryAdId = Integer.parseInt(idString);
-            int arbitraryUserId = Integer.parseInt(userIdString);
 
             Ad arbitraryAd = DaoFactory.getAdsDao().findAdById(arbitraryAdId);
-            User arbitraryUser = DaoFactory.getAdsDao().getAdOwner(arbitraryUserId);
+            User arbitraryUser = DaoFactory.getAdsDao().getAdOwner((int) arbitraryAd.getUserId());
 
             request.setAttribute("arbitraryAd", arbitraryAd);
             request.setAttribute("arbitraryUser", arbitraryUser);
 
             request.getRequestDispatcher("/WEB-INF/ads/arbitraryad.jsp").forward(request, response);
         }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int adId = Integer.parseInt(request.getParameter("id"));
+        String newDetails = request.getParameter("description");
+
+
+        String successPage = "/ads/arbitraryad.jsp;
+        response.sendRedirect(successPage);
     }
 }
