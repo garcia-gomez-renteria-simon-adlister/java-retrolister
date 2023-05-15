@@ -7,6 +7,13 @@
         <jsp:param name="title" value="Welcome to my site!" />
     </jsp:include>
     <style>
+        .navbar{
+            background-color: black;
+
+        }
+        .nav-link{
+            color: dodgerblue;
+        }
         body {
             background-color: #b6e3e9;
             font-family: 'Press Start 2P', cursive;
