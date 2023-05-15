@@ -1,30 +1,3 @@
-<%--&lt;%&ndash;--%>
-<%--  Created by IntelliJ IDEA.--%>
-<%--  User: tamicasimon--%>
-<%--  Date: 5/10/23--%>
-<%--  Time: 8:05 PM--%>
-<%--  To change this template use File | Settings | File Templates.--%>
-<%--&ndash;%&gt;--%>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <jsp:include page="/WEB-INF/partials/head.jsp">--%>
-<%--        <jsp:param name="title" value="Viewing One Ad" />--%>
-<%--    </jsp:include>--%>
-<%--    <title>${arbitraryAd.title}</title>--%>
-<%--</head>--%>
-
-<%--<body>--%>
-<%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
-<%--<div>--%>
-<%--    <h1>Title: ${arbitraryAd.title}</h1>--%>
-<%--    <h4>Description: ${arbitraryAd.description}</h4>--%>
-<%--&lt;%&ndash;    <h5>Category: ${arbitraryAd.categories}</h5>&ndash;%&gt;--%>
-<%--&lt;%&ndash;    refine this and may need another jsp/servlet&ndash;%&gt;--%>
-<%--</div>--%>
-
-<%--</body>--%>
-<%--</html>--%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -41,7 +14,7 @@
         }
         h1 {
             text-align: center;
-            color: #ff8c00; /* pastel orange */
+            color: #ff8c00;
             margin-top: 50px;
             margin-bottom: 30px;
         }
@@ -51,12 +24,12 @@
             text-align: center;
         }
         label {
-            color: #ffd700; /* pastel yellow */
+            color: #ffd700;
         }
         input[type=text], .btn-primary {
-            background-color: #ffe5b4; /* pastel orange */
-            border-color: #ffd700; /* pastel yellow */
-            color: #ffd700; /* pastel yellow */
+            background-color: #ffe5b4;
+            border-color: #ffd700;
+            color: #ffd700;
         }
         .hidden {
             display: none;
@@ -69,6 +42,7 @@
 <div class="container">
     <h1>Title: ${arbitraryAd.title}</h1>
     <h4>Description: ${arbitraryAd.description}</h4>
+<<<<<<< HEAD
     <%--    <h5>Category: ${arbitraryAd.categories}</h5>--%>
     <%--    refine this and may need another jsp/servlet--%>
     <button id="updateBtn" class="btn btn-primary">Update Description</button>
@@ -93,5 +67,10 @@
         updateForm.classList.remove('hidden');
     });
 </script>
+
+<%--    <h4>User: ${arbitraryUser.user_id}</h4>--%>
+<h4>User: ${arbitraryUser.getUser_id()}</h4>
+</div>
+
 </body>
 </html>

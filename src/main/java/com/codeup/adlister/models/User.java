@@ -4,6 +4,7 @@ import com.codeup.adlister.util.Password;
 
 public class User {
     private long id;
+    private int user_id;
     private String username;
     private String email;
     private String password;
@@ -19,6 +20,10 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+    public User(int userId, String username, String email) {
+    }
+
     public long getId() {
         return id;
     }
