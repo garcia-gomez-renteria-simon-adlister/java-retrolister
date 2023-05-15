@@ -6,6 +6,11 @@
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
     <style>
+        .navbar{
+            background-color: #b6e3e9;
+
+
+        }
         body {
             background-color: #b6e3e9;
             font-family: 'Press Start 2P', cursive;

@@ -1,13 +1,10 @@
 package com.codeup.adlister.dao;
-
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.Category;
 import com.mysql.cj.jdbc.Driver;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class MySQLCategoriesDao implements Categories {
     private Connection connection = null;
     public MySQLCategoriesDao(Config config) {
@@ -33,15 +30,12 @@ public class MySQLCategoriesDao implements Categories {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
-
     @Override
     public Long insert(Category category) {
         try {
-            String insertQuery = "INSERT INTO categories(user_id, title, description) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO categories(name) VALUES (?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, category.getName());
-            stmt.setLong(2, category.getId());
-
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -50,21 +44,12 @@ public class MySQLCategoriesDao implements Categories {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
-
-
     @Override
     public void update(Category category) {
-
     }
-
     @Override
     public void delete(Category category) {
-
     }
-
-
-
-
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
                 rs.getLong("id"),
