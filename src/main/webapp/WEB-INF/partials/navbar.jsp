@@ -25,6 +25,7 @@
             <% } else { %>
             <li><a href="/profile">My Profile</a></li>
             <li><a href="/ads/create">Create Ad</a></li>
+<%--            <li><a href="/ads/search">Search Games</a></li>--%>
             <li><a href="/logout">Logout</a></li>
             <% } %>
         </ul>

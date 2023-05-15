@@ -30,11 +30,8 @@ public class LoginServlet extends HttpServlet {
 
         if (user == null) {
             response.sendRedirect("/login");
-//            request.getSession().setAttribute("/navbar", "/login");
             return;
         }
-
-//        boolean validAttempt = Password.check(password, user.getPassword());
 
         if (password.equals(user.getPassword())) {
             request.getSession().setAttribute("user", user);

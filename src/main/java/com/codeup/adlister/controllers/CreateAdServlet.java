@@ -19,12 +19,30 @@ public class CreateAdServlet extends HttpServlet {
         }
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User loggedInUser = (User) request.getSession().getAttribute("user");
+
+        // Check if title is provided, display error message if not
+        String title = request.getParameter("title");
+        if (title == null || title.trim().isEmpty()) {
+            request.setAttribute("titleError", "Please provide a title for your ad");
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+            return;
+        }
+
+        // Check if description is provided, display error message if not
+        String description = request.getParameter("description");
+        if (description == null || description.trim().isEmpty()) {
+            request.setAttribute("error", "Please provide a description for your ad");
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+            return;
+        }
+
         Ad ad = new Ad(
-            loggedInUser.getId(),
-            request.getParameter("title"),
-            request.getParameter("description")
+                loggedInUser.getId(),
+                title,
+                description
         );
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
