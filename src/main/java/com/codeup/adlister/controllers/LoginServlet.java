@@ -33,7 +33,14 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        if (password.equals(user.getPassword())) {
+        boolean validAttempt = Password.check(password, user.getPassword());
+
+        System.out.println(validAttempt);
+        System.out.println(password);
+        System.out.println(user.getPassword());
+        System.out.println(username);
+        System.out.println(user.getUsername());
+        if (validAttempt) {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
@@ -41,3 +48,28 @@ public class LoginServlet extends HttpServlet {
         }
     }
 }
+
+
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        User user = DaoFactory.getUsersDao().findByUsername(username);
+//
+//        if (user == null) {
+//            response.sendRedirect("/login");
+//            return;
+//        }
+//
+//        boolean validAttempt = Password.check(password, user.getPassword());
+//
+//        System.out.println(validAttempt);
+//        System.out.println(password);
+//        System.out.println(user.getPassword());
+//        System.out.println(username);
+//        if (validAttempt) {
+//            request.getSession().setAttribute("user", user);
+//            response.sendRedirect("/profile");
+//        } else {
+//            response.sendRedirect("/login");
+//        }
+//    }

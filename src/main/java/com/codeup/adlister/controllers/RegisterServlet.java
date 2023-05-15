@@ -51,10 +51,11 @@ public class RegisterServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        User user = new User(username, email, password);
+        System.out.println(password);
+        User user = new User(username, email, Password.hash(password));
 
-        String hash = Password.hash(user.getPassword());
-        user.setPassword(hash);
+//        String hash = Password.hash(user.getPassword());
+//        user.setPassword(hash);
 
         DaoFactory.getUsersDao().insert(user);
 
